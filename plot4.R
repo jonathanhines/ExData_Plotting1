@@ -27,10 +27,32 @@ if(!exists("d")) {
     d$Time <- strptime(paste(d$Date,d$Time),"%d/%m/%Y %H:%M:%S")
     d$Date <- as.Date(d$Date, "%d/%m/%Y")
 }
+# xaxis_ticks <- seq(as.POSIXct("2007/02/01"),as.POSIXct("2007/02/03"),"days")
 
-png(file = "plot3.png")
+png(file = "plot4.png")
+
+# Set up to run a grid of plots (store the old default first so that we can put it back the way we found it)
+old_mfrow <- par("mfrow")
+par("mfrow"=c(2,2))
+
+# cell 1
+plot(d$Time, d$Global_active_power, type="l", ylab = "Global Active Power", xlab = "" )
+
+# cell 2
+plot(d$Time, d$Voltage, type="l", ylab = "Voltage", xlab = "datetime" )
+
+# cell 3
 plot(d$Time, d$Sub_metering_1, type="l", ylab = "Energy sub metering", xlab = "" )
 points(d$Time, d$Sub_metering_2, type="l", col = "red")
 points(d$Time, d$Sub_metering_3, type="l", col = "blue")
-legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lwd=1,col=c("black","red","blue"))
+legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lwd=1,col=c("black","red","blue"), bty="n")
+
+#cell 4
+plot(d$Time, d$Global_reactive_power, type="l", ylab = "Global_reactive_power", xlab = "datetime" )
+
+# Close the png device so that we can view the new image file
 dev.off()
+
+# Clean up and return default value
+par("mfrow"=old_mfrow)
+rm(old_mfrow)

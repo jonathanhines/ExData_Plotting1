@@ -1,3 +1,46 @@
+#Jon Hines Sumission for Coursera Exploratory Data Analysis Assignment 1
+The code found in this directory is designed to stand alone however it will be more efficient if one after another in the 
+same workspace as each R script uses the same data set so it will only download and load it once for the 4 plots.
+
+To run any of the scripts, set your working directory to the root of this repository and then source the script.  Each script will:
+
+1.  Check for the data file and download it if not present
+2.  Read in the subset of the data of interest and put it in a convenient state for plotting, storing it in the variable **d**
+3.  Generate a single png file of the same name as the script.
+
+Example:
+
+    source("plot1.R")
+
+Generates the file *plot1.png*
+
+## Results
+For convenience here are the 4 images produced by the script.  They should be identical to the ones in the description below.
+
+### Plot 1
+
+
+![plot of plot1](plot1.png) 
+
+
+### Plot 2
+
+![plot of plot2](plot2.png) 
+
+
+### Plot 3
+
+![plot of plot3](plot3.png) 
+
+
+### Plot 4
+
+![plot of plot4](plot4.png) 
+
+
+#Assignment Description
+For reference, below is the assignment description as included in the pre-forked repository.
+
 ## Introduction
 
 This assignment uses data from
